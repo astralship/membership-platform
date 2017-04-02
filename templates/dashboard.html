@@ -4,4 +4,14 @@ Logged in as <strong>{{ $root.user.email }}</strong> | <a href ng-click="signOut
 
 <h1>Dashboard</h1>
 
+
+
+<div ng-repeat="event in events">
+	<h3>Event {{ event.name }}</h3>
+	<p>{{ event.dateStart }} - {{ event.dateEnd }}</p>
+	<p ng-bind-html="event.description | unsafe"></p>
+</div>
+
+
+
 </span> <!-- page-login -->

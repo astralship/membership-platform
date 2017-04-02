@@ -1,6 +1,9 @@
 app.controller("DashboardCtrl", function($rootScope, $scope) {
 
-	$scope.signOut = function() {
-		$rootScope.signOut();
-	};
+	firebase.database().ref('/events/').once('value').then(function(snapshot) {
+	  var data = snapshot.val();
+	  $scope.events = data;
+	  $scope.$apply();
+	});
+
 });
