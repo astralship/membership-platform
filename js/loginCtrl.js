@@ -1,4 +1,4 @@
-app.controller("LoginCtrl", function($scope) {
+app.controller("LoginCtrl", function($scope, $location) {
   var _clear = function() {
     $scope.data = { 
       state : "login",
@@ -10,11 +10,20 @@ app.controller("LoginCtrl", function($scope) {
 
   _clear(); // setting default data initially, also used in other places
 
+  var search = $location.search(); // so that can link directly to login / craete / reset
+  if (search.create) {
+    $scope.data.state = "create";
+  } else if (search.login) {
+    $scope.data.state = "login";
+  } else if (search.reset) {
+    $scope.data.state = "reset";
+  }
+
   $scope.doLogin = function() {
 
     firebase.auth().signInWithEmailAndPassword($scope.data.email, $scope.data.password)
       .then(function(user) {
-        $state.go("home");
+        $location.path("dashboard");
         _clear();
       })
       .catch(function(error) {
@@ -26,15 +35,13 @@ app.controller("LoginCtrl", function($scope) {
 
   $scope.doCreate = function() {
     if ($scope.data.password !== $scope.data.repeat) {
-      alert("Passwords must match.");
+      alert("Password should be the same");
       return;
     }
 
-    overlay.loading();
-
     firebase.auth().createUserWithEmailAndPassword($scope.data.email, $scope.data.password)
       .then(function(user) {
-        $state.go("home");
+        $location.path("dashboard");
         _clear();
       })
       .catch(function(error) {
