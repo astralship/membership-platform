@@ -12,3 +12,16 @@ app.config(function ($routeProvider) {
     })
     .otherwise('/login')
 });
+
+app.run(function($rootScope, $location) {
+
+  $rootScope.signout = function() {
+    firebase.auth().signOut().then(function() {
+      $location.path("login");
+    }).catch(function(error) {
+      console.error(error);
+      alert(error);
+    });
+  };
+
+});

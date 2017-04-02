@@ -24,7 +24,7 @@ app.controller("LoginCtrl", function($scope, $location) {
     firebase.auth().signInWithEmailAndPassword($scope.data.email, $scope.data.password)
       .then(function(user) {
         $location.path("dashboard");
-        _clear();
+        $scope.$apply();
       })
       .catch(function(error) {
         console.error(error.code);
@@ -42,7 +42,7 @@ app.controller("LoginCtrl", function($scope, $location) {
     firebase.auth().createUserWithEmailAndPassword($scope.data.email, $scope.data.password)
       .then(function(user) {
         $location.path("dashboard");
-        _clear();
+        $scope.$apply();
       })
       .catch(function(error) {
         console.error(error.code);
@@ -55,7 +55,8 @@ app.controller("LoginCtrl", function($scope, $location) {
     firebase.auth().sendPasswordResetEmail($scope.data.email)
       .then(function(user) {
         _clear();
-        $scope.$apply(); // async reset, need manually kick
+        $scope.message = "Password email reset sent";
+        $scope.$apply();
       }).catch(function(error) {
         console.error(error.code);
         console.error(error.message);

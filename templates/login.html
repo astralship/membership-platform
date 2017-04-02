@@ -6,6 +6,8 @@
   <span ng-show="data.state === 'reset'" class="title">Reset Password</span>
 </h1>
 
+<p ng-show="message">{{ message }}</p>
+
 <form class="form-horizontal login" ng-show="data.state === 'login'" ng-submit="doLogin()">
   <div class="form-group">
     <label for="input-login-email" class="col-xs-3 control-label">Email</label>
