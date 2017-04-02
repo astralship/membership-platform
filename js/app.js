@@ -39,7 +39,7 @@ app.run(function($rootScope, $location) {
   // I've implemented it myself and then found almost identical solution: http://stackoverflow.com/a/11542936/775359
   $rootScope.$on('$routeChangeStart', function(event, next, current) {
     if (!$rootScope.user) { // if we are not logged in we should redirect to login
-      if (next.$$route.controller === "LoginCtrl") { // if we are already going to login: great
+      if (next.$$route && next.$$route.controller === "LoginCtrl") { // if we are already going to login: great
         return;
       } else { // otherwise redirecting to login
         $location.path( "/login" );
