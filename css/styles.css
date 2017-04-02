@@ -1,0 +1,8 @@
+.page-login .active {
+	pointer-events: none;
+	color: gray;
+}
+
+.page-login form {
+	height: 260px;
+}

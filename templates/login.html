@@ -1,1 +1,79 @@
-<h1>Login</h1>
+<span class="container page-login">
+
+<h1 class="title">
+  <span ng-show="data.state === 'login'">Login</span>
+  <span ng-show="data.state === 'create'" class="title">Create Account</span>
+  <span ng-show="data.state === 'reset'" class="title">Reset Password</span>
+</h1>
+
+<form class="form-horizontal login" ng-show="data.state === 'login'" ng-submit="doLogin()">
+  <div class="form-group">
+    <label for="input-login-email" class="col-xs-3 control-label">Email</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="data.email" class="form-control" id="input-login-email">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-login-password" class="col-xs-3 control-label">Password</label>
+    <div class="col-xs-9">
+      <input type="password" ng-model="data.password" class="form-control" id="input-login-password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <button type="submit" class="btn btn-default">Log in</button>
+    </div>
+  </div>
+</form>
+
+<form class="form-horizontal create" ng-show="data.state === 'create'" ng-submit="doCreate()">
+  <div class="form-group">
+    <label for="input-create-email" class="col-xs-3 control-label">Email</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="data.email" class="form-control" id="input-create-email">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-create-password" class="col-xs-3 control-label">Password</label>
+    <div class="col-xs-9">
+      <input type="password" ng-model="data.password" class="form-control" id="input-create-password">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-create-repeat" class="col-xs-3 control-label">Repeat</label>
+    <div class="col-xs-9">
+      <input type="password" ng-model="data.repeat" class="form-control" id="input-create-repeat">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <button type="submit" class="btn btn-default">Create account</button>
+    </div>
+  </div>
+</form>
+
+<form class="form-horizontal reset" ng-show="data.state === 'reset'" ng-submit="doReset()">
+  <div class="form-group">
+    <label for="input-create-email" class="col-xs-3 control-label">Email</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="data.email" class="form-control" id="input-create-email">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <button type="submit" class="btn btn-default">Reset password</button>
+    </div>
+  </div>
+</form>
+
+<a href ng-class="{active: data.state === 'login'}"  ng-click="data.state = 'login'">login</a><br>
+<a href ng-class="{active: data.state === 'create'}" ng-click="data.state = 'create'">create account</a><br>
+<a href ng-class="{active: data.state === 'reset'}"  ng-click="data.state = 'reset'">reset password</a><br>
+
+</span> <!-- page-login -->
