@@ -23,4 +23,10 @@ app.run(function($rootScope, $location) {
       console.alert(alert);
     });
   }
+
+  firebase.auth().onAuthStateChanged(function() {
+    $rootScope.user = firebase.auth().currentUser;
+    console.log($rootScope.user);
+    $rootScope.$apply();
+  });
 });
