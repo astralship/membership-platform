@@ -1,4 +1,4 @@
-var app = angular.module("app", ["ngRoute"]);
+var app = angular.module("app", ["ngRoute", "firebase"]);
 
 app.config(function ($routeProvider) {
   $routeProvider
@@ -8,7 +8,8 @@ app.config(function ($routeProvider) {
     })
     .when('/dashboard', {
       templateUrl: 'templates/dashboard.html',
-      controller: "DashboardCtrl"
+      controller: "DashboardCtrl",
+      resolve: { "currentAuth": function(Auth) { return Auth.$requireSignIn(); } }
     })
     .otherwise('/login')
 });
@@ -25,28 +26,21 @@ app.run(function($rootScope, $location) {
     });
   }
 
-  firebase.auth().onAuthStateChanged(function() {
-    $rootScope.user = firebase.auth().currentUser;
-    // console.log($rootScope.user);
-
-    if (!$rootScope.user) {
-      $location.path("login");
+  // https://github.com/firebase/angularfire/blob/master/docs/guide/user-auth.md
+  $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+    // We can catch the error thrown when the $requireSignIn promise is rejected
+    // and redirect the user back to the home page
+    if (error === "AUTH_REQUIRED") {
+      $location.path("/login");
     }
-
-    $rootScope.$apply();
-  });
-
-  // I've implemented it myself and then found almost identical solution: http://stackoverflow.com/a/11542936/775359
-  $rootScope.$on('$routeChangeStart', function(event, next, current) {
-    if (!$rootScope.user) { // if we are not logged in we should redirect to login
-      if (next.$$route && next.$$route.controller === "LoginCtrl") { // if we are already going to login: great
-        return;
-      } else { // otherwise redirecting to login
-        $location.path( "/login" );
-      }
-    } 
   });
 
 });
+
+app.factory("Auth", ["$firebaseAuth",
+  function($firebaseAuth) {
+    return $firebaseAuth();
+  }
+]);
 
 app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
