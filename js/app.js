@@ -35,6 +35,10 @@ app.run(function($rootScope, $location) {
     }
   });
 
+  firebase.auth().onAuthStateChanged(function() {
+    $rootScope.user = firebase.auth().currentUser;
+  });
+
 });
 
 app.factory("Auth", ["$firebaseAuth",
