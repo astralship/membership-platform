@@ -41,9 +41,14 @@ app.controller("LoginCtrl", function($scope, $location, userService) {
 
     firebase.auth().createUserWithEmailAndPassword($scope.data.email, $scope.data.password)
       .then(function(user) {
-        userService.createUser(user);
+        userService.updateUser({
+          uid:       user.uid,
+          email:     user.email
+        });
+
         $location.path("dashboard");
         $scope.$apply();
+
       })
       .catch(function(error) {
         console.error(error.code);

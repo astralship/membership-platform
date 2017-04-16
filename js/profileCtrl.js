@@ -1,24 +1,23 @@
 app.controller("ProfileCtrl", function($rootScope, $scope, userService) {
 
-	$scope.user = firebase.auth().currentUser;
-
+	$scope.user     = firebase.auth().currentUser;
 	var _userBackup = angular.copy($scope.user);
-
 
 	$scope.cancel = function() {
 		$scope.user = _userBackup;
 	};
 
 	$scope.save = function() {
-		userService.updateUser({
-			uid: $scope.user.uid,
-			name: $scope.user.name,
-			facebook: $scope.user.facebook,
-			instagram: $scope.user.instagram,
-			phone: $scope.user.phone,
-			website: $scope.user.website,
-			services: $scope.user.services
-		});
+		var params = { uid: $scope.user.uid };
+
+		if ($scope.user.name)      params.name      = $scope.user.name;
+		if ($scope.user.facebook)  params.facebook  = $scope.user.facebook;
+		if ($scope.user.instagram) params.instagram = $scope.user.instagram;
+		if ($scope.user.phone)     params.phone     = $scope.user.phone;
+		if ($scope.user.website)   params.website   = $scope.user.website;
+		if ($scope.user.services)  params.services  = $scope.user.services;
+
+		userService.updateUser(params);
 	};
 
 

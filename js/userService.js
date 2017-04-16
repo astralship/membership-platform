@@ -2,17 +2,11 @@ app.service("userService", function($rootScope) {
 
 	var service = {};
 
-	service.createUser = function(params) {
-		firebase.database().ref("users/" + params.uid).update(
-			{
-				"email": params.email,
-				"lastLogin": new Date().getTime()
-			}
-		);
-	};
-
 	service.updateUser = function(params) {
+		var uid = params.uid;
+		delete params.uid;
 
+		firebase.database().ref("users/" + params.uid).update(params);
 	};
 
 	return service;
