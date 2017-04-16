@@ -6,3 +6,9 @@
 .page-login form {
 	height: 260px;
 }
+
+
+
+.page-profile .form-group p{
+	font-style: italic;
+}

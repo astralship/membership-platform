@@ -1,6 +1,10 @@
+<span class="page-profile">
+
 <div ng-include="'templates/header.html'"></div>
 
 <h1>Edit profile</h1>
+
+<pre>{{ user | json }}</pre>
 
 <form class="form-horizontal" ng-submit="save()">
   <div class="form-group">
@@ -8,6 +12,25 @@
     <div class="col-xs-9">
       <input type="email" ng-model="user.name" class="form-control" id="input-user-name">
     </div>
+
+    <p class="col-xs-9 col-xs-offset-3">Use the name you'd like to use.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="input-user-facebook" class="col-xs-3 control-label">Facebook URL</label>
+    <div class="col-xs-9">
+      <input type="url" ng-model="user.facebook" class="form-control" id="input-user-facebook">
+    </div>
+
+    <p class="col-xs-9 col-xs-offset-3">Not fans of Facebook but helps with media and marketing.</p>
+  </div>  
+
+    <div class="form-group">
+    <label for="input-user-instagram" class="col-xs-3 control-label">Instagram URL</label>
+    <div class="col-xs-9">
+      <input type="url" ng-model="user.instagram" class="form-control" id="input-user-instagram">
+    </div>
+    <p class="col-xs-9 col-xs-offset-3">Social media profiles to help us promote the thing.</p>
   </div>  
 
   <div class="form-group">
@@ -15,8 +38,7 @@
     <div class="col-xs-9">
       <input type="email" ng-model="user.email" class="form-control" id="input-user-email" disabled>
     </div>
-
-    <p>Will be kept private. So that we could add you to Slack, Trello, Google Drive, etc...</p>
+    <p class="col-xs-9 col-xs-offset-3">Will be kept private. So that we could add you to Slack, Trello, Google Drive, etc...</p>
   </div>  
 
   <div class="form-group">
@@ -24,8 +46,7 @@
     <div class="col-xs-9">
       <input type="tel" ng-model="user.phone" class="form-control" id="input-user-phone">
     </div>
-
-    <p>Will be kept private. In case of emergencies.</p>
+    <p class="col-xs-9 col-xs-offset-3">Will be kept private. In case of emergencies.</p>
   </div>  
 
   <div class="form-group">
@@ -33,20 +54,23 @@
     <div class="col-xs-9">
       <input type="url" ng-model="user.website" class="form-control" id="input-user-website">
     </div>
+    <p class="col-xs-9 col-xs-offset-3">Helping to build your brand.</p>
+    <p class="col-xs-9 col-xs-offset-3">If you need a simple website it's an easy job for us.</p>
   </div>  
-
-
 
   <div class="form-group">
 
-	 <p>We have exceptional network of people. Techno shamans, wizards, shapeshifters, super-connected multi-dimensional hyper-liberated uber-sovereign entities who do not conform to conventional regime of 9-5 office jobs. You are rare finds and whenever it seems beneficial we would like to employ your skills while serving humanity. One of our ideas <em>(as everything <strong>WORK IN PROGRESS</strong>)</em> we would like to experiment with offering consulting servies to other revolutionary organisations. If you feel like utilising your talent - please let us know what is your unique edge, unique asset.</p>
-	 
-	 <p>We are not a typical workplace - we are independent - we follow universal principles - we use resources that are at hand... Come and join us in this mission. See also <a href="https://astralship.org/investment">investment</a> and <a href="https://astralship.org/services">services</a>.</p>
-
-    <label for="input-user-description" class="col-xs-3 control-label">Description / Tagline / Services</label>
+    <label for="input-user-services" class="col-xs-3 control-label">Services</label>
     <div class="col-xs-9">
-      <textarea ng-model="user.description" class="form-control" id="input-user-description"></textarea> 
+      <textarea ng-model="user.services" class="form-control" id="input-user-services"></textarea> 
     </div>
+
+	 <p class="col-xs-9 col-xs-offset-3">We have exceptional network of people. Techno shamans, wizards, shapeshifters, super-connected multi-dimensional hyper-liberated uber-sovereign entities who do not conform to conventional regime of 9-5 office jobs. You are rare finds and whenever it seems beneficial we would like to employ your skills while serving humanity. One of our ideas <em>(as everything <strong>WORK IN PROGRESS</strong>)</em> we would like to experiment with offering consulting servies to other revolutionary organisations. If you feel like utilising your talent - please let us know what is your unique edge, unique asset.</p>
+	 
+	 <p class="col-xs-9 col-xs-offset-3">We are not a typical workplace - we are independent - we follow universal principles - we use resources that are at hand... Come and join us in this mission.</p>
+
+	 <p class="col-xs-9 col-xs-offset-3">See also <a href="https://astralship.org/investment">investment</a> and <a href="https://astralship.org/services">services</a>.</p>
+
   </div>
 
 
@@ -60,15 +84,4 @@
 
 </form>
 
-<!--
-
-preferred name
-picture
-mobile phone (for emergencies)
-email (for Google Docs, Trello, etc)
-website (shameless self promotion)
-personal tagline / description
-services offerred (we will offer consulting services)
-
-
--->
+</span>

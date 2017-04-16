@@ -11,5 +11,9 @@ app.service("userService", function($rootScope) {
 		);
 	};
 
+	service.updateUser = function(params) {
+
+	};
+
 	return service;
 });
