@@ -29,9 +29,11 @@
     <script type="text/javascript" src="js/userService.js"></script>
 
   </head>
-  <body ng-app="app">
+  <body ng-app="app" class="container">
 
-    <div class="container" ng-view></div>
+    <div ng-include="'templates/header.html'"></div>
+
+    <div ng-view></div>
 
   </body>
 

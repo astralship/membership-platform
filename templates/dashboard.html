@@ -1,11 +1,12 @@
-<div ng-include="'templates/header.html'"></div>
+<h1>Dashboard • list of events</h1>
 
-<h1>Dashboard</h1>
-
-
-
-<div ng-repeat="event in events">
-	<h3>Event {{ event.name }}</h3>
-	<p>{{ event.dateStart }} - {{ event.dateEnd }}</p>
-	<p ng-bind-html="event.description | unsafe"></p>
+<div class="panel panel-default" ng-repeat="event in events">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ event.name }}</h3>
+  </div>
+  <div class="panel-body">
+	<p><strong>Start:</strong> {{ event.dateStart }}</p>
+	<p><strong>End:</strong>   {{ event.dateEnd }}  </p>
+	<p class="well" ng-bind-html="event.description | unsafe"></p>
+  </div>
 </div>

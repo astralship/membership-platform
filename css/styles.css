@@ -1,3 +1,9 @@
+h1 {
+	margin-bottom: 20px;
+}
+
+/***********************/
+
 .page-login .active {
 	pointer-events: none;
 	color: gray;
@@ -7,7 +13,7 @@
 	height: 260px;
 }
 
-
+/***********************/
 
 .page-profile .form-group p{
 	font-style: italic;
