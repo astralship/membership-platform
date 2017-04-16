@@ -1,1 +1,15 @@
-Logged in as <strong>{{ $root.user.email }}</strong> | <a href="#profile">edit profile</a> | <a href ng-click="signOut()">sign out</a>
+<span ng-if="$root.user.email">
+
+	Logged in as <strong>{{ $root.user.email }}</strong> | 
+	<a href="#profile">edit profile</a> | 
+	<a href="#help">help</a> | 
+	<a href ng-click="signOut()">sign out</a>
+
+</span>
+
+<span ng-if="! $root.user.email">
+
+	You are <strong>not</strong> logged in | 
+	any issues visit <a href="#help">help</a> 
+
+</span>

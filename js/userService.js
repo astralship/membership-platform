@@ -1,9 +1,9 @@
-app.service("userService", function($rootScope, $scope) {
+app.service("userService", function($rootScope) {
 
 	var service = {};
 
 	service.createUser = function(params) {
-		
+
 
 	};
 
