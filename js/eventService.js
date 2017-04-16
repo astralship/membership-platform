@@ -6,7 +6,7 @@ app.service("eventService", function($rootScope) {
 		console.log("attending", params);
 
 		firebase.database().ref("users/" + params.uid + "/events/" + params.eventId).set(true);
-		firebase.database().ref("events/" + params.eventId + "/users/" + params.userId).set(true);
+		firebase.database().ref("events/" + params.eventId + "/attendees/" + params.uid).set(true);
 	};	
 
 	service.cancel = function(params) {
