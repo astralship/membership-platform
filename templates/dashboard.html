@@ -1,6 +1,6 @@
 <h1>Dashboard • list of events</h1>
 
-<div class="panel panel-default" ng-repeat="event in events">
+<div class="panel panel-default" ng-repeat="(id, event) in events">
   <div class="panel-heading">
     <h3 class="panel-title">{{ event.name }}</h3>
   </div>
@@ -8,5 +8,12 @@
 	<p><strong>Start:</strong> {{ event.dateStart }}</p>
 	<p><strong>End:</strong>   {{ event.dateEnd }}  </p>
 	<p class="well" ng-bind-html="event.description | unsafe"></p>
+	<p>
+		<button type="button" class="btn btn-primary" ng-click="attend(id)">Mark yourself as attending</button>
+		<span>
+			<button type="button" class="btn btn-default" disabled>You are already marked as attending</button><br>
+			<a href ng-click="cancel(event)">Cancel</a>
+		</span>
+	</p>
   </div>
 </div>
