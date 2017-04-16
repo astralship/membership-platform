@@ -10,6 +10,11 @@ app.config(function ($routeProvider) {
       templateUrl: 'templates/dashboard.html',
       controller: "DashboardCtrl",
       resolve: { "currentAuth": function(Auth) { return Auth.$requireSignIn(); } }
+    })    
+    .when('/profile', {
+      templateUrl: 'templates/profile.html',
+      controller: "ProfileCtrl",
+      resolve: { "currentAuth": function(Auth) { return Auth.$requireSignIn(); } }
     })
     .otherwise('/login')
 });

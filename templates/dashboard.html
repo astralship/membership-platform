@@ -1,6 +1,4 @@
-<span class="page-login">
-
-Logged in as <strong>{{ $root.user.email }}</strong> | <a href ng-click="signOut()">sign out</a>
+<div ng-include="'templates/header.html'"></div>
 
 <h1>Dashboard</h1>
 
@@ -11,7 +9,3 @@ Logged in as <strong>{{ $root.user.email }}</strong> | <a href ng-click="signOut
 	<p>{{ event.dateStart }} - {{ event.dateEnd }}</p>
 	<p ng-bind-html="event.description | unsafe"></p>
 </div>
-
-
-
-</span> <!-- page-login -->

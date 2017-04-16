@@ -1,4 +1,4 @@
-app.controller("LoginCtrl", function($scope, $location) {
+app.controller("LoginCtrl", function($scope, $location, userService) {
   var _clear = function() {
     $scope.data = { 
       state : "login",
@@ -41,6 +41,7 @@ app.controller("LoginCtrl", function($scope, $location) {
 
     firebase.auth().createUserWithEmailAndPassword($scope.data.email, $scope.data.password)
       .then(function(user) {
+        userService.createUser(user);
         $location.path("dashboard");
         $scope.$apply();
       })
