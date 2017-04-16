@@ -2,3 +2,73 @@
 
 <h1>Edit profile</h1>
 
+<form class="form-horizontal" ng-submit="save()">
+  <div class="form-group">
+    <label for="input-user-name" class="col-xs-3 control-label">Name</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="user.name" class="form-control" id="input-user-name">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-user-email" class="col-xs-3 control-label">Email</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="user.email" class="form-control" id="input-user-email" disabled>
+    </div>
+
+    <p>Will be kept private. So that we could add you to Slack, Trello, Google Drive, etc...</p>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-user-phone" class="col-xs-3 control-label">Phone</label>
+    <div class="col-xs-9">
+      <input type="tel" ng-model="user.phone" class="form-control" id="input-user-phone">
+    </div>
+
+    <p>Will be kept private. In case of emergencies.</p>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-user-website" class="col-xs-3 control-label">Website</label>
+    <div class="col-xs-9">
+      <input type="url" ng-model="user.website" class="form-control" id="input-user-website">
+    </div>
+  </div>  
+
+
+
+  <div class="form-group">
+
+	 <p>We have exceptional network of people. Techno shamans, wizards, shapeshifters, super-connected multi-dimensional hyper-liberated uber-sovereign entities who do not conform to conventional regime of 9-5 office jobs. You are rare finds and whenever it seems beneficial we would like to employ your skills while serving humanity. One of our ideas <em>(as everything <strong>WORK IN PROGRESS</strong>)</em> we would like to experiment with offering consulting servies to other revolutionary organisations. If you feel like utilising your talent - please let us know what is your unique edge, unique asset.</p>
+	 
+	 <p>We are not a typical workplace - we are independent - we follow universal principles - we use resources that are at hand... Come and join us in this mission. See also <a href="https://astralship.org/investment">investment</a> and <a href="https://astralship.org/services">services</a>.</p>
+
+    <label for="input-user-description" class="col-xs-3 control-label">Description / Tagline / Services</label>
+    <div class="col-xs-9">
+      <textarea ng-model="user.description" class="form-control" id="input-user-description"></textarea> 
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <button type="submit" class="btn btn-default">Save</button>
+    </div>
+  </div>
+
+  <a href ng-click="cancel()">cancel edits</a>
+
+</form>
+
+<!--
+
+preferred name
+picture
+mobile phone (for emergencies)
+email (for Google Docs, Trello, etc)
+website (shameless self promotion)
+personal tagline / description
+services offerred (we will offer consulting services)
+
+
+-->
