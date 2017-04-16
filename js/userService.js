@@ -6,7 +6,7 @@ app.service("userService", function($rootScope) {
 		var uid = params.uid;
 		delete params.uid;
 
-		firebase.database().ref("users/" + params.uid).update(params);
+		firebase.database().ref("users/" + uid).update(params);
 	};
 
 	return service;

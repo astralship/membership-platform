@@ -1,0 +1,14 @@
+{
+  "rules": {
+  	"events": {
+       ".read": "auth != null",
+       ".write": false
+    },
+    "users": {
+      "$user_id": {
+        ".read": true,
+        ".write": "$user_id === auth.uid"
+      }
+    }
+  }
+}
