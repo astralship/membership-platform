@@ -2,7 +2,6 @@ app.controller("ProfileCtrl", function($rootScope, $scope, userService) {
 
 	var _userBackup;
 	userService.get().once("value").then(function(snap) {
-
 		$scope.user = snap.val();
 		$scope.$apply();
 	})
