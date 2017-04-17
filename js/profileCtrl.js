@@ -1,14 +1,18 @@
 app.controller("ProfileCtrl", function($rootScope, $scope, userService) {
 
-	$scope.user     = firebase.auth().currentUser;
-	var _userBackup = angular.copy($scope.user);
+	var _userBackup;
+	userService.get().once("value").then(function(snap) {
+
+		$scope.user = snap.val();
+		$scope.$apply();
+	})
 
 	$scope.cancel = function() {
 		$scope.user = _userBackup;
 	};
 
 	$scope.save = function() {
-		var params = { uid: $scope.user.uid };
+		var params = { uid: $rootScope.user.uid };
 
 		if ($scope.user.name)      params.name      = $scope.user.name;
 		if ($scope.user.facebook)  params.facebook  = $scope.user.facebook;
@@ -17,14 +21,9 @@ app.controller("ProfileCtrl", function($rootScope, $scope, userService) {
 		if ($scope.user.website)   params.website   = $scope.user.website;
 		if ($scope.user.services)  params.services  = $scope.user.services;
 
+		console.log("saving profile", params);
+
 		userService.updateUser(params);
 	};
-
-
-	firebase.database().ref('/events/').once('value').then(function(snapshot) {
-	  var data = snapshot.val();
-	  $scope.events = data;
-	  $scope.$apply();
-	});
 
 });
