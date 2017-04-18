@@ -4,9 +4,10 @@
   <span ng-show="data.state === 'login'">Login</span>
   <span ng-show="data.state === 'create'" class="title">Create Account</span>
   <span ng-show="data.state === 'reset'" class="title">Reset Password</span>
+  <span ng-show="data.state === 'already'" class="title">You are already logged in. Go to <a href="#dashboard">dashboard</a></span>
 </h1>
 
-<p ng-show="message">{{ message }}</p>
+<p ng-show="message">{{ message }}</p> <!-- letting know that password reset has been sent -->
 
 <form class="form-horizontal login" ng-show="data.state === 'login'" ng-submit="doLogin()">
   <div class="form-group">

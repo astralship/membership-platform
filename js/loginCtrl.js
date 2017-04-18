@@ -70,4 +70,10 @@ app.controller("LoginCtrl", function($scope, $location, userService) {
       });
   };
 
+  $scope.$watch("user", function() {
+    if ($scope.user) {
+      $scope.data.state = "already";
+    }
+  });
+
 });
