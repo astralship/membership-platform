@@ -9,10 +9,10 @@
 	<p><strong>End:</strong>   {{ event.dateEnd }}  </p>
 	<p class="well" ng-bind-html="event.description | unsafe"></p>
 	<p>
-		<button type="button" class="btn btn-primary" ng-click="attend(id)">Mark yourself as attending</button>
-		<span>
+		<button type="button" class="btn btn-primary" ng-click="attend(id, event)" ng-hide="event.attendees[user.uid]">Mark yourself as attending</button>
+		<span ng-show="event.attendees[user.uid]">
 			<button type="button" class="btn btn-default" disabled>You are already marked as attending</button><br>
-			<a href ng-click="cancel(id)">Cancel</a>
+			<a href ng-click="cancel(id, event)">Cancel</a>
 		</span>
 	</p>
   </div>
