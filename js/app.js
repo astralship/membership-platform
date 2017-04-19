@@ -23,11 +23,13 @@ app.config(function ($routeProvider) {
 });
 
 
-app.run(function($rootScope, $location) {
+app.run(function($rootScope, $location, $timeout) {
   $rootScope.signOut = function() {
     firebase.auth().signOut().then(function() {
-      $location.path("login");
-      $rootScope.$apply();
+      $timeout(function() {
+        $location.path("login");
+        $rootScope.$apply();
+      }, 100); // for some reason the login controller thinks that we are still logged in...
     }).catch(function(error) {
       console.error(error);
       console.alert(alert);
