@@ -30,11 +30,19 @@
     <script type="text/javascript" src="js/eventService.js"></script>
 
   </head>
-  <body ng-app="app" class="container">
+  <body ng-app="app">
 
-    <div ng-include="'templates/header.html'"></div>
+    <div class="wip">
+      <p>This app is <strong>work in progress</strong>, <strong>proof of concept</strong>, <strong>working prototype</strong> - expect changes and some things may not be full functional.</p>
+      <p>List of <a href="https://github.com/astralship/membership-platform/issues">open issues</a>, our <a href="http://astralship.org/jobs">jobs page</a> or <a href="http://astralship.org/contact">contact us</a> directly.</p>
+      <p>We are on the mission to <a href="http://astralship.org/mission">heal the planet</a> and we need your help, we are together in this.</p>
+    </div>
 
-    <div ng-view></div>
+    <div class="container">
+      <div ng-include="'templates/header.html'"></div>
+
+      <div ng-view></div>
+    </div>
 
   </body>
 

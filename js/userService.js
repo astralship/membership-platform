@@ -10,7 +10,7 @@ app.service("userService", function($rootScope, $q) {
 		var uid = params.uid;
 		delete params.uid;
 
-		firebase.database().ref("users/" + uid).update(params);
+		return firebase.database().ref("users/" + uid).update(params);
 	};
 
 	return service;

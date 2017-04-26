@@ -22,7 +22,7 @@ app.controller("ProfileCtrl", function($rootScope, $scope, userService) {
 
 		console.log("saving profile", params);
 
-		userService.updateUser(params);
+		userService.updateUser(params); // TODO: display notification after saving completed
 	};
 
 });
