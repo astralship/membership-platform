@@ -16,10 +16,13 @@ It's super basic. I estimate I've spent 10-12 hours on that. On the other hand I
 - Angular 1.x
 - Firebase
 - Bootstrap
-- http://livereload.com/ _(makes your life better)
+- http://livereload.com/ _(makes your life better)_
 
 
+### Using Firebase
 To register account with Firebase you'll need Google account. For your development purposes you may want to create your own and change credentials in `index.html`
+
+Firebase provides hosting out of the box `firebase deploy` so it's practical. Their technology is really clever and allows us to work really fast...
 
 ## Work in progress
 
